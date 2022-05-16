@@ -1,0 +1,7 @@
+one:
+  title: My Bookmark One
+  link: https://helloworld.com
+slugged:
+  title: Bookmark with Custom Slug
+  link: https://validurl.com
+  shortay: myslug

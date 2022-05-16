@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
-  before_action :set_bookmark, only: %i[ show edit update destroy ]
+  skip_forgery_protection
+  before_action :set_bookmark, only: %i[show edit update destroy]
 
   # GET /bookmarks or /bookmarks.json
   def index
@@ -7,8 +8,7 @@ class BookmarksController < ApplicationController
   end
 
   # GET /bookmarks/1 or /bookmarks/1.json
-  def show
-  end
+  def show; end
 
   # GET /bookmarks/new
   def new
@@ -16,8 +16,7 @@ class BookmarksController < ApplicationController
   end
 
   # GET /bookmarks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /bookmarks or /bookmarks.json
   def create
@@ -25,7 +24,7 @@ class BookmarksController < ApplicationController
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to bookmark_url(@bookmark), notice: "Bookmark was successfully created." }
+        format.html { redirect_to bookmark_url(@bookmark), notice: 'Bookmark was successfully created.' }
         format.json { render :show, status: :created, location: @bookmark }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +37,7 @@ class BookmarksController < ApplicationController
   def update
     respond_to do |format|
       if @bookmark.update(bookmark_params)
-        format.html { redirect_to bookmark_url(@bookmark), notice: "Bookmark was successfully updated." }
+        format.html { redirect_to bookmark_url(@bookmark), notice: 'Bookmark was successfully updated.' }
         format.json { render :show, status: :ok, location: @bookmark }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +51,20 @@ class BookmarksController < ApplicationController
     @bookmark.destroy
 
     respond_to do |format|
-      format.html { redirect_to bookmarks_url, notice: "Bookmark was successfully destroyed." }
+      format.html { redirect_to bookmarks_url, notice: 'Bookmark was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bookmark
-      @bookmark = Bookmark.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bookmark_params
-      params.require(:bookmark).permit(:title, :link, :shortay)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bookmark
+    @bookmark = Bookmark.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def bookmark_params
+    params.permit(:title, :link, :shortay)
+  end
 end

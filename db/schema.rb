@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_150707) do
     t.string "shortay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["shortay"], name: "unique_shortays", unique: true
     t.index ["title"], name: "index_bookmarks_on_title"
   end
 

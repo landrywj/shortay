@@ -1,0 +1,20 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Bookmarks</li>
+  </ol>
+</nav>
+<p style="color: green"><%= notice %></p>
+
+<h1>Bookmarks</h1>
+
+<div id="bookmarks">
+  <% @bookmarks.each do |bookmark| %>
+    <%= render bookmark %>
+    <p>
+      <%= link_to "Show this bookmark", bookmark %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New bookmark", new_bookmark_path %>

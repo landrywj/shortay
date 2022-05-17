@@ -10,6 +10,14 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1 or /bookmarks/1.json
   def show; end
 
+  def refer 
+   if @bookmark = Bookmark.find_by(shortay: params[:shortay])
+    redirect_to @bookmark.link, allow_other_host: true
+   else 
+    raise ActionController::RoutingError.new('Not Found')
+   end 
+  end
+
   # GET /bookmarks/new
   def new
     @bookmark = Bookmark.new

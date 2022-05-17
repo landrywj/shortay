@@ -1,17 +1,11 @@
-<div id="<%= dom_id bookmark %>">
-  <p>
-    <strong>Title:</strong>
-    <%= bookmark.title %>
-  </p>
-
-  <p>
-    <strong>Link:</strong>
-    <%= bookmark.link %>
-  </p>
-
-  <p>
-    <strong>Shortay:</strong>
+<tr id="<%= dom_id bookmark %>">
+  <td>
+    <%= link_to bookmark.title, bookmark %>
+  </td>
+    <td>
     <%= bookmark.shortay %>
-  </p>
-
-</div>
+  </td>
+  <td>
+    <%= bookmark.link %>
+  </td>
+</tr>

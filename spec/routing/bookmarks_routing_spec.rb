@@ -15,7 +15,7 @@ RSpec.describe BookmarksController, type: :routing do
     end
 
     it 'routes to #refer' do 
-      expect(get: '/bookmarks/my_short_link').to route_to('bookmarks#refer', link: 'my_short_link')
+      expect(get: '/my_short_link').to route_to('bookmarks#refer', shortay: 'my_short_link')
     end
 
     it "routes to #edit" do

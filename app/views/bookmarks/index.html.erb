@@ -5,16 +5,21 @@
   </ol>
 </nav>
 <p style="color: green"><%= notice %></p>
-
-<h1>Bookmarks</h1>
-
-<div id="bookmarks">
+<header>
+  <%= link_to "New bookmark", new_bookmark_path, class: "btn btn-primary float-end" %>
+  <h1>Bookmarks</h1>
+</header>
+<table class="table" id="bookmarks">
+<thead>
+<th>Title</th>
+<th>Shortay</th>
+<th>Link</th>
+</thead>
+<tbody>
   <% @bookmarks.each do |bookmark| %>
     <%= render bookmark %>
-    <p>
-      <%= link_to "Show this bookmark", bookmark %>
-    </p>
   <% end %>
-</div>
+  </tbody>
+</table>
 
-<%= link_to "New bookmark", new_bookmark_path %>
+

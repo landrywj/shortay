@@ -10,8 +10,7 @@
 
 ### Getting Started 
 
-- Download the repo
+- Download or clone the repo
 - Run `bundle install` and `rails db:setup`
 - Run the Test Suite with `bundle exec rspec` 
 - Use autotesting while you develop with `bundle exec guard`
-- 

@@ -14,10 +14,13 @@ RSpec.describe BookmarksController, type: :routing do
       expect(get: "/bookmarks/1").to route_to("bookmarks#show", id: "1")
     end
 
+    it 'routes to #refer' do 
+      expect(get: '/my_short_link').to route_to('bookmarks#refer', shortay: 'my_short_link')
+    end
+
     it "routes to #edit" do
       expect(get: "/bookmarks/1/edit").to route_to("bookmarks#edit", id: "1")
     end
-
 
     it "routes to #create" do
       expect(post: "/bookmarks").to route_to("bookmarks#create")

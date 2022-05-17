@@ -31,6 +31,14 @@ RSpec.describe '/bookmarks', type: :request do
     end
   end
 
+  describe 'GET /refer' do 
+    it 'redirects to the referenced link' do 
+      bookmark = bookmark(:slugged)
+      get bookmark_url(shortay: bookmark.shortay) 
+      expect(response).to redirect_to(bookmark.link)
+    end
+  end
+
   describe 'GET /new' do
     it 'renders a successful response' do
       get new_bookmark_path

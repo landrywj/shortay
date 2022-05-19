@@ -1,0 +1,1 @@
+# This file is not necessary.  All RSpec configurations are included in the spec/rails_helper.rb

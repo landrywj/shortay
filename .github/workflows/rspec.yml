@@ -15,10 +15,7 @@ jobs:
     services:
       postgres:
         image: postgres
-        ports:
-          - 5432:5432
         env:
-          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
@@ -26,7 +23,8 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out code from repo
+        uses: actions/checkout@v3
       - name: Install OS dependencies
         run: sudo apt-get install libpq-dev
       - name: Set up Ruby

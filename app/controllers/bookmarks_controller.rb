@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  skip_forgery_protection
+  protect_from_forgery with: :null_session
   before_action :set_bookmark, only: %i[show edit update destroy]
 
   # GET /bookmarks or /bookmarks.json

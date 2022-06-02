@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This class creates bookmarks with short URLs which redirect users to external sites.
 class Bookmark < ApplicationRecord
   validates :title, :link, :shortay, presence: true
   validates :link, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])

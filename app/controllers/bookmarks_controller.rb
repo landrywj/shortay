@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# App and API facing controller for CRUD and referall of short urls.
 class BookmarksController < ApplicationController
   protect_from_forgery with: :null_session
   before_action :set_bookmark, only: %i[show edit update destroy]
@@ -10,12 +13,9 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1 or /bookmarks/1.json
   def show; end
 
-  def refer 
-   if @bookmark = Bookmark.find_by(shortay: params[:shortay])
+  def refer
+    @bookmark = Bookmark.find_by(shortay: params[:shortay])
     redirect_to @bookmark.link, allow_other_host: true
-   else 
-    raise ActionController::RoutingError.new('Not Found')
-   end 
   end
 
   # GET /bookmarks/new

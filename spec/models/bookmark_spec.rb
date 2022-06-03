@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
@@ -18,7 +20,7 @@ RSpec.describe Bookmark, type: :model do
   it 'recognizes a valid URI for link attribute' do
     bookmark.title = 'My Website'
     bookmark.link = 'https://wilfrid.io'
-    expect(bookmark.valid?).to be_truthy
+    expect(bookmark).to be_valid
   end
 
   it 'creates a secure random url safe slug if none is provided' do
@@ -27,5 +29,14 @@ RSpec.describe Bookmark, type: :model do
     bookmark.valid?
     expect(bookmark.shortay).not_to be_nil
     expect(bookmark.shortay.length).to eq(10)
+  end
+
+  it 'calculates pricing' do
+    bookmark.shortay = 'goly'
+    expect(bookmark.calculate_pricing).to eq(5)
+    bookmark.shortay = 'gole'
+    expect(bookmark.calculate_pricing).to eq(6)
+    bookmark.shortay = 'googe'
+    expect(bookmark.calculate_pricing).to eq(8)
   end
 end
